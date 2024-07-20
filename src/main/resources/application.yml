@@ -1,0 +1,37 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: Trading Backend
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:mysql://localhost:3306/trading
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ankushpaulclg2002@gmail.com
+    password: tqfstawopjvwfaoi
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+application:
+  jwt:
+    secret: b2f3e05b0b0f0e0ebe95d19c37fcf236bb3dd29f4cd00b946e27d7c6cfd199e6
+    expiration: 864000000
+  refresh:
+    expiration: 8640000000
