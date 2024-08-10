@@ -51,6 +51,7 @@ public class SecurityConfiguration {
                 )
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 

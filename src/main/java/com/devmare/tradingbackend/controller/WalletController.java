@@ -57,6 +57,7 @@ public class WalletController {
         );
     }
 
+    @PutMapping("/pay-order-payment")
     public ResponseEntity<DefaultResponse> payOrderPayment(
             @RequestParam Long orderId,
             @RequestParam Long userId
@@ -72,6 +73,22 @@ public class WalletController {
                                 )
                         ),
                         "Order payment completed successfully!"
+                )
+        );
+    }
+
+    @PutMapping("/{walletId}")
+    public ResponseEntity<DefaultResponse> findWalletById(
+            @PathVariable Long walletId
+    ) {
+        return ResponseEntity.ok(
+                new DefaultResponse(
+                        SUCCESS,
+                        Map.of(
+                                "data",
+                                walletService.findWalletById(walletId)
+                        ),
+                        "Wallet fetched successfully!"
                 )
         );
     }

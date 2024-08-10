@@ -1,5 +1,6 @@
 package com.devmare.tradingbackend.business.service.impl;
 
+import com.devmare.tradingbackend.business.service.PaymentOrderService;
 import com.devmare.tradingbackend.business.service.WalletService;
 import com.devmare.tradingbackend.data.entity.Order;
 import com.devmare.tradingbackend.data.entity.User;
@@ -9,6 +10,7 @@ import com.devmare.tradingbackend.data.exception.UserInfoException;
 import com.devmare.tradingbackend.data.repository.OrderRepository;
 import com.devmare.tradingbackend.data.repository.UserRepository;
 import com.devmare.tradingbackend.data.repository.WalletRepository;
+import com.devmare.tradingbackend.security.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,8 @@ public class WalletServiceImpl implements WalletService {
     private final WalletRepository walletRepository;
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
+    private final PaymentOrderService paymentOrderService;
+    private final AuthenticationService authenticationService;
 
     @Override
     public Wallet getUserWallet(Long userId) {

@@ -28,10 +28,12 @@ spring:
           starttls:
             enable: true
 
-
 application:
   jwt:
     secret: b2f3e05b0b0f0e0ebe95d19c37fcf236bb3dd29f4cd00b946e27d7c6cfd199e6
     expiration: 864000000
   refresh:
     expiration: 8640000000
+  razorpay:
+    key: rzp_test_cvU9Jl9tV7jPhV
+    secret: ZZNfWiq2LJSMWLVrYW2Q9iyj
