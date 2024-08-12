@@ -4,6 +4,8 @@ import com.devmare.tradingbackend.business.domain.DefaultResponse;
 import com.devmare.tradingbackend.business.dto.UpdatePasswordDto;
 import com.devmare.tradingbackend.business.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.ui.Model;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,22 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping("/profile")
+    public ResponseEntity<DefaultResponse> userProfile(
+            Model model, Authentication authentication
+    ) {
+        return ResponseEntity.ok(
+                new DefaultResponse(
+                        DefaultResponse.Status.SUCCESS,
+                        Map.of(
+                                "data",
+                                authentication.getPrincipal()
+                        ),
+                        "Authenticated user found successfully!"
+                )
+        );
+    }
 
     @GetMapping("/find-authenticated-user")
     public ResponseEntity<DefaultResponse> findAuthenticatedUser() {

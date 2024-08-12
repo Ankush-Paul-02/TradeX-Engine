@@ -1,6 +1,14 @@
 server:
   port: 8081
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 353873951299-p6v7kpm7l0aj73jcdee4073ed8i6g388.apps.googleusercontent.com
+            client-secret: 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
+
   application:
     name: Trading Backend
   main:

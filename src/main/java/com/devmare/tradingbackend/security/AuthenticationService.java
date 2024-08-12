@@ -8,6 +8,7 @@ import com.devmare.tradingbackend.data.entity.RefreshToken;
 import com.devmare.tradingbackend.data.entity.TwoFactorAuthentication;
 import com.devmare.tradingbackend.data.entity.TwoFactorOtp;
 import com.devmare.tradingbackend.data.entity.User;
+import com.devmare.tradingbackend.data.enums.Provider;
 import com.devmare.tradingbackend.data.enums.UserRole;
 import com.devmare.tradingbackend.data.exception.UserInfoException;
 import com.devmare.tradingbackend.data.repository.UserRepository;
@@ -63,6 +64,7 @@ public class AuthenticationService {
                 .fullname(newUserRequest.getFullname())
                 .email(newUserRequest.getEmail())
                 .role(UserRole.ROLE_CUSTOMER)
+                .provider(Provider.EMAIL_PASSWORD)
                 .twoFactorAuthentication(twoFactorAuthentication)
                 .phone("+91" + newUserRequest.getPhone())
                 .password(passwordEncoder.encode(newUserRequest.getPassword()))

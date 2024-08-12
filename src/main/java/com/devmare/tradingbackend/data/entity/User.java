@@ -1,5 +1,6 @@
 package com.devmare.tradingbackend.data.entity;
 
+import com.devmare.tradingbackend.data.enums.Provider;
 import com.devmare.tradingbackend.data.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -28,6 +29,9 @@ public class User extends BaseEntity implements UserDetails {
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Provider provider;
 
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.ROLE_CUSTOMER;
